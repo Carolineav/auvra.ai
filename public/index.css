@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Typo+Round:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Typo Round', sans-serif;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 25%, #2d1b69 50%, #0f0f23 75%, #000000 100%);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 8s ease-in-out infinite 4s;
+  }
+  
+  .animate-slow-spin {
+    animation: spin 30s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 30s linear infinite;
+  }
+  
+  .animate-brain-pulse {
+    animation: brainPulse 3s ease-in-out infinite;
+  }
+  
+  .animate-neural-flow {
+    animation: neuralFlow 4s ease-in-out infinite;
+  }
+  
+  .animate-circuit {
+    animation: circuit 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-cosmic-drift {
+    animation: cosmicDrift 15s ease-in-out infinite;
+  }
+  
+  .animate-particle-float {
+    animation: particleFloat 6s ease-in-out infinite;
+  }
+
+  /* Chatbot positioning and z-index management */
+  .chatbot-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .chatbot-container > * {
+    pointer-events: auto;
+  }
+
+  /* Ensure chatbot stays above all content */
+  .chatbot-overlay {
+    z-index: 9998;
+  }
+
+  /* Content padding to prevent overlap */
+  .content-with-chatbot {
+    padding-bottom: 120px;
+  }
+
+  /* Mobile-specific chatbot positioning */
+  @media (max-width: 640px) {
+    .chatbot-container {
+      bottom: 0.75rem;
+      right: 0.75rem;
+    }
+    
+    .content-with-chatbot {
+      padding-bottom: 100px;
+    }
+  }
+
+  /* Desktop-specific chatbot positioning */
+  @media (min-width: 1024px) {
+    .chatbot-container {
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+    
+    .content-with-chatbot {
+      padding-bottom: 140px;
+    }
+  }
+
+  /* Smooth scrolling behavior */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  /* Prevent chatbot from interfering with scroll */
+  .scroll-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Chatbot backdrop for better visibility */
+  .chatbot-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Enhanced z-index layering system */
+  .z-header {
+    z-index: 50;
+  }
+
+  .z-modal {
+    z-index: 100;
+  }
+
+  .z-chatbot {
+    z-index: 9999;
+  }
+
+  .z-chatbot-overlay {
+    z-index: 9998;
+  }
+
+  /* Prevent content from being hidden behind chatbot */
+  .main-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Footer adjustments for chatbot */
+  .footer-with-chatbot {
+    margin-bottom: 0;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: 640px) {
+    .footer-with-chatbot {
+      padding-bottom: 100px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-with-chatbot {
+      padding-bottom: 140px;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(-5deg);
+  }
+}
+
+@keyframes brainPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 20px rgba(139, 69, 255, 0.6));
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(0 0 30px rgba(139, 69, 255, 0.9));
+  }
+}
+
+@keyframes neuralFlow {
+  0% {
+    stroke-dasharray: 0 100;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dasharray: 50 50;
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    opacity: 0.3;
+  }
+}
+
+@keyframes circuit {
+  0% {
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes cosmicDrift {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateX(30px) translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateX(-20px) translateY(30px) rotate(240deg);
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a3a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8b45ff, #00d4ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00d4ff, #8b45ff);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(139, 69, 255, 0.3);
+  color: #00d4ff;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #8b45ff;
+  outline-offset: 2px;
+}
+
+/* Cosmic glowing effects */
+.cosmic-glow {
+  box-shadow: 0 0 30px rgba(139, 69, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.2);
+}
+
+.neural-glow {
+  filter: drop-shadow(0 0 15px rgba(139, 69, 255, 0.6));
+}
+
+.brain-glow {
+  filter: drop-shadow(0 0 25px rgba(139, 69, 255, 0.8)) drop-shadow(0 0 50px rgba(0, 212, 255, 0.4));
+}
+
+.ai-glow {
+  box-shadow: 0 0 20px rgba(139, 69, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
+}
+
+/* Cosmic background particles */
+.cosmic-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cosmic-particles::before,
+.cosmic-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #8b45ff 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.cosmic-particles::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cosmic-particles::after {
+  top: 60%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+/* Chatbot specific styles for better integration */
+.chatbot-shadow {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(139, 69, 255, 0.1),
+    0 0 30px rgba(139, 69, 255, 0.3);
+}
+
+.chatbot-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure proper stacking context */
+.page-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+/* Prevent chatbot from blocking important UI elements */
+.important-ui {
+  position: relative;
+  z-index: 100;
+}
+
+/* Mobile viewport adjustments */
+@media (max-width: 640px) {
+  .chatbot-mobile-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chatbot-container {
+    border: 2px solid #8b45ff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-transition {
+    transition: none;
+  }
+  
+  .animate-float,
+  .animate-float-delayed,
+  .animate-brain-pulse,
+  .animate-neural-flow,
+  .animate-circuit,
+  .animate-cosmic-drift,
+  .animate-particle-float {
+    animation: none;
+  }
+}
